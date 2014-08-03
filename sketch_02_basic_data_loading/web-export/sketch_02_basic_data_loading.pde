@@ -5,7 +5,7 @@
  Gabriel Gianordoli
  http://gianordoli.com
  
- * Loading filtered posts
+ * Loading and displaying filtered posts
 --------------------------------------------------------------------------- */
 
 //Storing all data in a 2D array of Strings
@@ -30,11 +30,11 @@ void setup(){
                                  trim(myLine[6])
                                });   
   }
-  debug();
+//  debug();
 }
 
 void draw(){
-  
+  background(255);
 }
 
 void debug(){
@@ -45,3 +45,4 @@ void debug(){
     println();
   }
 }
+
