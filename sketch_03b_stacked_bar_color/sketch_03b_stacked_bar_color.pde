@@ -6,9 +6,11 @@
  http://gianordoli.com
  
  * Loading filtered posts
+ * Displaying a sort of stacked bar chart, with timeline on x axys
+ * Two color modes: classes and teams
 --------------------------------------------------------------------------- */
 
-//Storing all posts in a 2D array of Strings
+//Storing all data in a 2D array of Strings
 //I don' know how many lines it has yet, but I know that there are 7 columns
 String[][] posts = new String[0][7];
 
@@ -20,7 +22,8 @@ HashMap teams = new HashMap();
 //However, they haven' been implemented in ProcessingJS yet 
 
 void setup(){
-  size(1333, 768);
+  size(800, 600);
+  colorMode(HSB);
 
   //loading posts
   String[] tableString = loadStrings("bootcamp_2013_filtered_posts.tsv");
@@ -28,13 +31,13 @@ void setup(){
     String[] myLine = split(lineString, "\t");
     posts = (String[][])append(posts,
                                new String[]{
-                                 trim(myLine[0]),  //class
-                                 trim(myLine[1]),  //team
-                                 trim(myLine[2]),  //student
-                                 trim(myLine[3]),  //student href
-                                 trim(myLine[4]),  //post
-                                 trim(myLine[5]),  //post href
-                                 trim(myLine[6])   //date
+                                 trim(myLine[0]),
+                                 trim(myLine[1]),
+                                 trim(myLine[2]),
+                                 trim(myLine[3]),
+                                 trim(myLine[4]),
+                                 trim(myLine[5]),
+                                 trim(myLine[6])
                                });
     //Storing classes
     if(classes.containsKey(myLine[0]) != true){
@@ -43,11 +46,42 @@ void setup(){
     //Storing teams
     if(teams.containsKey(myLine[1]) != true){
       teams.put(myLine[1], 0);
-    }                              
+    }  
   }
-  debug();
+  
+  //Assigning hue values for each class and team
+  createColors(classes);
+  createColors(teams);  
+//  debug();  
 }
 
 void draw(){
+  background(0);
   
+  //Vars
+  String prevDate = "";  
+  float size = 16;  
+  float x = 0;
+  float y = height;
+  
+  //Looping throught the posts
+  for(int i = 0; i < posts.length; i++){
+    
+    //Changing position depending on the date
+    String currDate = posts[i][6];
+    if(!currDate.equals(prevDate) && !prevDate.equals("")){
+      x += size;
+      y = height;
+    }else if(!prevDate.equals("")){
+      y -= size;
+    }
+    prevDate = currDate;
+    
+    //Color
+    fill(classes.get(posts[i][0]), 255, 255);
+//    fill(teams.get(posts[i][1]), 255, 255);
+    
+    //Drawing
+    rect(x, y, size, -size);
+  }
 }
