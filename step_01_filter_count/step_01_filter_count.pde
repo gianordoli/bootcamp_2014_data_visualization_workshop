@@ -14,16 +14,13 @@
  - counting posts by a given category (team, class, student or date)
 --------------------------------------------------------------------------- */
 
-//We'll use a 2D array to store our data: [category][number of posts]
-String[][] finalData;
+//We'll use a 2D array to store our data
+//We don't know its length yet, so let's start with zero
+//But we know that each row will store 2 columns: [category][number of posts]
+String[][] finalData = new String[0][2];
 
 void setup(){
-  
-  //Creating a header
-  finalData = new String[1][2];
-  finalData[0][0] = "class";
-  finalData[0][1] = "value";
-  
+    
   // Loading our original data (the tsv file) into an Array.
   // Each row becomes an entry. So there are no columns so far 
   String[] originalData = loadStrings("bootcamp_2013_posts.tsv");
