@@ -30,10 +30,10 @@ August 9th, 2014
 **4. Live Code**
   * Students pick up one of the drawings to code together in Processing.
 
+![Data Visualization Workshop](https://raw.githubusercontent.com/gianordoli/bootcamp_2014_data_visualization_workshop/master/_pics/dataviz_dorkshop_02.jpg)
+
 ![Data Visualization Workshop](https://raw.githubusercontent.com/gianordoli/bootcamp_2014_data_visualization_workshop/master/_pics/dataviz_dorkshop_04.jpg)
 
 ![Data Visualization Workshop](https://raw.githubusercontent.com/gianordoli/bootcamp_2014_data_visualization_workshop/master/_pics/dataviz_dorkshop_01.jpg)
-
-![Data Visualization Workshop](https://raw.githubusercontent.com/gianordoli/bootcamp_2014_data_visualization_workshop/master/_pics/dataviz_dorkshop_02.jpg)
 
 ![Data Visualization Workshop](https://raw.githubusercontent.com/gianordoli/bootcamp_2014_data_visualization_workshop/master/_pics/dataviz_dorkshop_03.jpg)
